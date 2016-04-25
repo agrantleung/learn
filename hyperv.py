@@ -1,0 +1,1 @@
+print('Hyper-V')
