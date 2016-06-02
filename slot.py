@@ -22,7 +22,7 @@ s2.set_score(85)
 print(s2.score)
 
 class GraduateStudent(Student):
-    __slots__ = ('score',)
+    __slots__ = ('score')
 g= GraduateStudent()
 g.score=88
 print(g.score)
