@@ -12,7 +12,7 @@ def getTitle(url):
     except AttributeError as e:
         return None
     return title
-title = getTitle("http://www.pythonscraping.com/pages/page1.html")
+title = getTitle("http://www.wisefly.cn/aboutus/yuewu/4.html")
 if title == None:
     print("Title could not be found")
 else:
