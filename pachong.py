@@ -1,15 +1,19 @@
-import urllib
-#import urllib2
-import re
-import pandas as pd
-a=[]
-url='http://focus.tianya.cn/'
-request=urllib.Request(url)
-response=urllib.urlopen(request)
-content=response.read().decode('utf-8')
-pattern=re.compile('<h3>.*?title="(.*?)".*?title" >',re.S)
-items=re.findall(pattern,content)
-for item in items:
-    a.append(item)
-    b=pd.DataFrame(a)
-print (b)
+from urllib.request import urlopen
+from urllib.error import HTTPError
+from bs4 import BeautifulSoup
+def getTitle(url):
+    try:
+        html = urlopen(url)
+    except HTTPError as e:
+        return None
+    try:
+        bsObj = BeautifulSoup(html.read())
+        title = bsObj.body.h1
+    except AttributeError as e:
+        return None
+    return title
+title = getTitle("http://www.pythonscraping.com/pages/page1.html")
+if title == None:
+    print("Title could not be found")
+else:
+    print(title)
