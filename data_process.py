@@ -88,17 +88,3 @@ for each_t in sarah:
     if each_t not in unique_sarah:
         unique_sarah.append(each_t)
 print(unique_sarah[0:3])'''
-
-
-
-
-
-
-
-
-
-
-
-
-
-
